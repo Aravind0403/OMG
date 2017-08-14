@@ -1,0 +1,596 @@
+
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>OMG Subscription Model</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="css/style5.css">
+<style>
+  .modal-header, h4, .close {
+      background-color: #5cb85c;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #f9f9f9;
+  }
+  </style>
+
+</head>
+
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=758284001017685";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="container">
+ 
+  <!-- Trigger the modal with a button -->
+
+  <!-- Login Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form" id="login_form">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" class="form-control" id="usrname" name="usrname" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="password" class="form-control" id="psw" name="psw" placeholder="Enter password">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Remember me</label>
+            </div>
+              <button type="submit" class="btn btn-success btn-block" id="login_check"><span class="glyphicon glyphicon-off"></span> Login</button>
+          </form><br/>
+          <center>Or login with </center>
+            <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+        </div>
+        <div class="modal-footer">
+          <p>Not a member? <a href="#" data-toggle="modal" data-target="#reg" id="register">Sign Up</a></p>
+          <p>Forgot <a href="#">Password?</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+    <!-- register Modal -->
+  <div class="modal register fade" id="reg" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Register</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form" id="register_form">
+          <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Name</label>
+              <input type="text" class="form-control" id="username" name="username" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+              <label for="reg_email"><span class="glyphicon glyphicon-user"></span> Email</label>
+              <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="Enter email">
+            </div>
+             <div class="form-group">
+              <label for="reg_mobile"><span class="glyphicon glyphicon-eye-open"></span> Mobile Number</label>
+              <input type="text" class="form-control" id="reg_mobile" name="reg_mobile" placeholder="Enter Mobile Number">
+            </div>
+            <div class="form-group">
+              <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+            </div>  
+            <div class="form-group">
+              <label for="address"><span class="glyphicon glyphicon-user"></span>Shipping Address</label>
+              <textarea name="address" id="address" class="form-control" style="height:100px;"></textarea>
+            </div>
+
+              <button type="submit" class="btn btn-success btn-block" id="reg_submit"><span class="glyphicon glyphicon-off"></span> Register</button>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+
+<div class="row">
+
+    <div class="col-md-4" >
+	
+				<div class="inside">
+<div class="logo">
+				<img src="images/logo1.png" width="100px";></div>
+      		<h1> OMG Subscription Model </h1><br>
+            <p id="nc"> Your Protein Intake at present <span class="intake">&nbsp;</span> Grams/ Day</p><br/>
+            <p id="nc"> Your Protein need is <span class="display_weight">&nbsp;</span> Grams/ Day</p><br/>
+            <p id="nc"> Your Protein deficiency is <span class="need">&nbsp;</span> Grams/ Day</p><br/>
+            <p id="nc"> Hence, your OMG need is <span class="needed">&nbsp;</span> Kgs/ Month</p><br/><br/><br/>
+
+</div>
+  </div>      
+  
+<div class="col-md-8 pricing-background"> 
+    <div class="center">
+                 <span class="input input--madoka">
+                    <label class="input__label input__label--madoka" for="products">
+						<span class="input__label-content input__label-content--madoka"></span>
+					</label><br><br>
+					<!-- <select id="productvariation">
+                    <option  value="select">Choose your Protein</option>
+                    <option  value="whey_alpha">Whey Alpha</option>
+                    <option  value="whey_lite">Whey Lite</option>
+                   <!--  <option  value="soya_alpha">Soya Alpha</option>
+                    <option  value="meal_of_champions">Meal Of Champions</option>
+                    <option  value="creal_plus">Creal Plus</option> -->
+                    </select>					
+				</span> 
+                 <label id ="productvariation"><h6> Whey Alpha</h6></label>
+            </div>
+  	<div class="pricing-container">
+            
+		<div class="pricing-switcher">
+			<p class="fieldset">
+				<input type="radio" name="duration-1" value="monthly" id="monthly-1">
+				<label for="monthly-1" >Monthly 15%</label>
+				<input type="radio" name="duration-1" value="Bi-Annual" id="Bi-Annual-1">
+				<label for="Bi-Annual-1">Bi-Annual 27.5%</label>
+				<input type="radio" name="duration-1" value="Annual" id="Annual-1">
+				<label for="Annual-1">Annual 40%</label>
+				<!-- <span class="switch"></span> -->
+				
+			</p>
+		</div>
+		<ul class="pricing-list bounce-invert" id="whey_alpha">
+        
+			<li id="highlighted">
+				<ul class="pricing-wrapper">
+					<li data-type="monthly" class="is-visible" onclick="getpackage('monthly','silver');">
+						<header class="pricing-header">
+							<h2>Silver</h2>
+							<div class="price">
+								<span class="currency">₹</span>
+								<span class="value">2,000</span>
+								<span class="duration">mo</span>
+							</div>
+						</header>
+						<div class="pricing-body">
+							<ul class="pricing-features">
+								<!-- <li>Whey Alpha</li> -->
+								<li>  <em> 15 </em> Servings</li>
+								<li><em>30gms</em> Protein Per Scoop</li>
+							<!-- 	<li> You Save <em> %</em></li> -->
+                                <li> Cancellation Period <em> 2 months</em></li>
+                                <li>  <em> - </em> </li>
+                                <li>   <em> - </em> </li>
+                                <li>  Referral discounts at <em> 3%</em></li>
+                                <li>    <em> - </em> </li>
+                                <li><em>24/7</em> Support</li>
+							</ul>
+						</div>
+						<footer class="pricing-footer">
+							<button type="button" class="btn btn-default btn-lg login" data-toggle="modal" data-target="#myModal">Login</button>
+                            <a href="shipping.php" class="btn btn-default btn-lg hide buy">Buy</a>
+						</footer>
+					</li>
+					<li data-type="Bi-Annual" class="is-hidden" onclick="getpackage('biannual','silver');">
+						<header class="pricing-header">
+							<h2>Silver</h2>
+							<div class="price">
+								<span class="currency">₹</span>
+								<span class="value">10,500</span>
+								<span class="duration">yr</span>
+							</div>
+						</header>
+						<div class="pricing-body">
+							<ul class="pricing-features">
+								<li>  <em> 15 </em> Servings</li>
+								<li><em>15 gms</em> Protein Per Scoop</li>
+						<!-- 		<li> You Save <em> %</em></li> -->
+                                <li> Cancellation Period <em> 2 months</em></li>
+                                <li>   <em> - </em>  </li>
+                                <li>   <em> - </em> </li>
+                                <li>Referral discounts at <em>3%</em></li>
+                                <li>    <em> - </em> </li>
+                                <li><em>24/7</em> Support</li>
+							</ul>
+						</div>
+						<footer class="pricing-footer">
+							<button type="button" class="btn btn-default btn-lg login" data-toggle="modal" data-target="#myModal">Login</button>
+                            <a href="shipping.php" class="btn btn-default btn-lg hide buy" >Buy</a>
+						</footer>
+					</li>
+                    
+					<li data-type="Annual" class="is-hidden" onclick="getpackage('annual','silver');">
+						<header class="pricing-header">
+							<h2>Silver</h2>
+							<div class="price">
+								<span class="currency">₹</span>
+								<span class="value">16,500</span>
+								<span class="duration">yr</span>
+							</div>
+						</header>
+						<div class="pricing-body">
+							<ul class="pricing-features">
+								<li>  <em> 15 </em> Servings</li>
+								<li><em>15 gms</em> Protein Per Scoop</li>
+							<!-- 	<li> You Save <em> %</em></li> -->
+                                <li> Cancellation Period <em> 2 months</em></li>
+                                <li>   <em> - </em>  </li>
+                                <li>   <em> - </em> </li>
+                                <li>  Referral discounts at <em> 3%</em></li>
+                                <li>    <em> - </em> </li>
+                                <li><em>24/7</em> Support</li>
+							</ul>
+						</div>
+						<footer class="pricing-footer">
+							<button type="button" class="btn btn-default btn-lg login" data-toggle="modal" data-target="#myModal">Login</button>
+                            <a href="shipping.php" class="btn btn-default btn-lg hide buy">Buy</a>
+						</footer>
+					</li>
+				</ul>
+			</li>
+			<li id="highlighted_gold" >
+				<ul class="pricing-wrapper">
+					<li data-type="monthly" class="is-visible" onclick="getpackage('monthly','gold');">
+						<header class="pricing-header">
+							<h2>Gold</h2>
+							<div class="price">
+								<span class="currency">₹</span>
+								<span class="value">3,400</span>
+								<span class="duration">mo</span>
+							</div>
+						</header>
+						<div class="pricing-body">
+							<ul class="pricing-features">
+								<li>  <em> 30 </em> Servings</li>
+								<li><em>30gms</em> Protein Per Scoop</li>
+							<!-- 	<li> You Save <em> </em></li> -->
+                                <li> Cancellation Period <em> 1 month</em></li>
+                                <li>    <em> - </em> </li>
+                                <li> We offer you <em>OMG's Beta tested Drinks </em> </li>
+                                <li>  Referral discounts at <em> 6%</em></li>
+                                <li> <em>Free OMG Branded Polo T-shirts </em> </li>
+                                <li><em>24/7</em> Support</li>
+							</ul>
+						</div>
+						<footer class="pricing-footer">
+							<button type="button" class="btn btn-default btn-lg login" data-toggle="modal" data-target="#myModal">Login</button>
+                            <a href="shipping.php" class="btn btn-default btn-lg hide buy">Buy</a>
+						</footer>
+					</li>
+					<li data-type="Bi-Annual" class="is-hidden" onclick="getpackage('biannual','gold');">
+						<header class="pricing-header">
+							<h2>Gold</h2>
+							<div class="price">
+								<span class="currency">₹</span>
+								<span class="value">18,000</span>
+								<span class="duration">yr</span>
+							</div>
+						</header>
+						<div class="pricing-body">
+							<ul class="pricing-features">
+                                <li>  <em> 30 </em> Servings</li>
+								<li><em>30 gms</em> Protein Per Scoop</li>
+							<!-- 	<li> You Save <em> </em></li> -->
+                                <li> Cancellation Period <em> 1 month</em></li>
+                                <li>    <em> - </em> </li>
+                                <li> We offer you  <em>OMG's Beta tested Drinks </em>  </li>
+                                <li>  Referral discounts at <em> 6%</em></li>
+                                <li> <em>Free OMG Branded Polo T-shirts </em> </li>
+                                <li><em>24/7</em> Support</li>
+							</ul>
+						</div>
+						<footer class="pricing-footer">
+							<button type="button" class="btn btn-default btn-lg login" data-toggle="modal" data-target="#myModal">Login</button>
+                            <a href="shipping.php" class="btn btn-default btn-lg hide buy">Buy</a>
+						</footer>
+					</li>
+					<li data-type="Annual" class="is-hidden" onclick="getpackage('annual','gold');">
+						<header class="pricing-header">
+							<h2>Gold</h2>
+							<div class="price">
+								<span class="currency">₹</span>
+								<span class="value">30,000</span>
+								<span class="duration">yr</span>
+							</div>
+						</header>
+						<div class="pricing-body">
+							<ul class="pricing-features">
+							    <li>  <em> 30 </em> Servings</li>
+								<li><em>30 gms</em> Protein Per Scoop</li>
+							<!-- 	<li> You Save <em> </em></li> -->
+                                <li> Cancellation Period <em> 1 month</em></li>
+                                <li>   <em> - </em>  </li>
+                                <li> We offer you <em>OMG's Beta tested Drinks </em></li>
+                                <li>  Referral discounts at <em> 6%</em></li>
+                                <li>  <em>Free OMG Branded Polo T-shirts</em>  </li>
+                                <li><em>24/7</em> Support</li>
+							</ul>
+						</div>
+						<footer class="pricing-footer">
+							<button type="button" class="btn btn-default btn-lg login"  data-toggle="modal" data-target="#myModal">Login</button>
+                            <a href="shipping.php" class="btn btn-default btn-lg hide buy" >Buy</a>
+						</footer>
+					</li>
+				</ul>
+			</li>
+			<li id="highlighted_platnium">
+				<ul class="pricing-wrapper">
+					<li data-type="monthly" class="is-visible" onclick="getpackage('monthly','platinum');">
+						<header class="pricing-header">
+							<h2>Platinum</h2>
+							<div class="price">
+								<span class="currency">₹</span>
+								<span class="value">6,300</span>
+								<span class="duration">mo</span>
+							</div>
+						</header>   
+						<div class="pricing-body">
+							<ul class="pricing-features">
+					            <li>  <em> 60</em> Servings</li>
+								<li><em>30 gms</em> Protein Per Scoop</li>
+								<!-- <li> You Save <em></em></li> -->
+                                <li> Cancellation Period <em> Unlimited</em></li>
+                                <li>  <em>OMG's Exclusive BALLER Protein Balls</em>  </li>
+                                <li> We offer you  <em>OMG's Beta tested Drinks </em> </li>
+                                <li>  Referral discounts at <em> 10%</em></li>
+                                <li>  <em>Free OMG Branded Polo T-shirts</em></li>
+                                <li><em>24/7</em> Support</li>
+							</ul>
+						</div>
+						<footer class="pricing-footer">
+							<button type="button" class="btn btn-default btn-lg login" data-toggle="modal" data-target="#myModal">Login</button>
+                            <a href="shipping.php" class="btn btn-default btn-lg hide buy">Buy</a>
+						</footer>
+					</li>
+					<li data-type="Bi-Annual" class="is-hidden" onclick="getpackage('biannual','platinum');">
+						<header class="pricing-header">
+							<h2>Platinum</h2>
+							<div class="price">
+								<span class="currency">₹</span>
+								<span class="value">33,000</span>
+								<span class="duration">yr</span>
+							</div>
+						</header>
+						<div class="pricing-body">
+							<ul class="pricing-features">
+								 <li>  <em> 60</em> Servings</li>
+								<li><em>30gms</em> Protein Per Scoop</li>
+							<!-- 	<li> You Save <em> 37.5%</em></li> -->
+                                <li> Cancellation Period <em> Unlimited</em></li>
+                                <li> <em>OMG's Exclusive BALLER Protein Balls </em>  </li>
+                                <li> We offer you  <em>OMG's Beta tested Drinks </em> </li>
+                                <li>  Referral discounts at <em> 10%</em></li>
+                                <li>  <em> Free OMG Branded Polo T-shirts</em> </li>
+                                <li><em>24/7</em> Support</li>
+							</ul>
+						</div>
+						<footer class="pricing-footer">
+							<button type="button" class="btn btn-default btn-lg login" data-toggle="modal" data-target="#myModal">Login</button>
+                            <a href="shipping.php" class="btn btn-default btn-lg hide buy">Buy</a>
+                           
+						</footer>
+					</li>
+					<li data-type="Annual" class="is-hidden" onclick="getpackage('annual','platinum');">
+						<header class="pricing-header">
+							<h2>Platinum</h2>
+							<div class="price">
+								<span class="currency">₹</span>
+								<span class="value">54,000</span>
+								<span class="duration">yr</span>
+							</div>
+						</header>
+						<div class="pricing-body">
+							<ul class="pricing-features">
+								 <li>  <em> 60 </em> Servings</li>
+								<li><em>30gms</em> Protein Per Scoop</li>
+				<!-- 				<li> You Save <em> 37.5%</em></li> -->
+                                <li> Cancellation Period <em> Unlimited</em></li>
+                                <li> <em>OMG's Exclusive BALLER Protein Balls</em>  </li>
+                                <li> We offer you <em>OMG's Beta tested Drinks </em>  </li>
+                                <li>  Referral discounts at <em> 10%</em></li>
+                                <li>  <em> Free OMG Branded Polo T-shirts </em> </li>
+                                <li><em>24/7</em> Support</li>
+							</ul>
+						</div>
+						<footer class="pricing-footer">
+							<button type="button" class="btn btn-default btn-lg login" data-toggle="modal" data-target="#myModal">Login</button>
+                            <a href="shipping.php" class="btn btn-default btn-lg hide buy">Buy</a>
+                           
+						</footer>
+					</li>
+				</ul>
+			</li>
+
+		</ul>
+        
+        
+	
+			
+    </div>
+    </div>
+</div>
+
+
+</div>
+
+  
+    <script src="js/validate.js"></script>
+      <script src="js/index.js"></script>
+<script>
+
+$(document).ready(function(){
+$( "#register" ).click(function() {
+ $("#myModal").modal('hide');
+});
+$("#login_form").validate({
+
+        rules: {
+            
+            usrname : {
+            required :true,
+            email :true
+            },
+            psw:{
+            required :true,
+             minlength: 8
+            }
+            
+        },
+        messages: {
+            usrname: "Please specify your Name",
+            psw:"Please Enter Your Email Address"
+            
+
+        },
+   submitHandler: function (form) {
+
+var usrname = $('#usrname').val();
+var psw = $('#psw').val();
+
+        $.ajax({
+
+    type: "POST",
+    url: "api.php?module=login&action=login_validate",
+    async:false,
+    data: {username : usrname ,password : psw},
+    success: function(output){
+        //console.log(output);
+        localStorage.setItem('loggedIn',true);
+         $("#myModal").modal('hide');
+         location.reload();
+        
+         
+    },
+    error: function (error) {
+                  alert('Invalid Login Details');
+              }
+});
+    }
+       
+    });
+    if(localStorage.getItem('loggedIn') == 'true')
+    {
+     $(".login").addClass("hide");
+         $( ".buy" ).removeClass( "hide" );
+    }
+$("#register_form").validate({
+
+        rules: {
+            username: "required",
+            reg_email : {
+            required :true,
+            email :true
+            },
+            password:{
+            required :true,
+             minlength: 8
+            },
+            reg_mobile:{
+             required :true,
+             number:true,
+             minlength: 10
+             
+            },
+            address:{
+            required :true
+            }
+            
+        },
+        messages: {
+            username: "Please specify your Name",
+            reg_email:"Please Enter Your Email Address",
+            password: "Please Specify your password",
+            reg_mobile:"Please enter your Mobile Number",
+            address:"Please enter your shipping address"
+            
+
+        },
+   submitHandler: function (form) {
+
+var uname = $('#username').val();
+var uemail = $('#reg_email').val();
+var umobile = $('#reg_mobile').val();
+var password = $('#password').val();
+var address = $('#address').val();
+
+        $.ajax({
+
+    type: "POST",
+    url: "api.php?module=register&action=reg",
+    async:false,
+    data: {name : uemail ,email : uemail ,mobile : umobile ,password : password ,address:address},
+    success: function(output){
+        console.log(output);
+       alert('ok');
+    }
+});
+    }
+
+        
+    });
+var weight = localStorage.getItem("weight");
+var intake = localStorage.getItem("intake");
+
+//calculate need protein
+if(localStorage.getItem("fitness") == 0 )
+{
+var fit = "2.0";
+}
+else
+{
+fit ="1.5";
+}
+console.log(fit);
+console.log(weight);
+var total_weight = localStorage.getItem("weight") * fit;
+var need = total_weight - localStorage.getItem("intake");
+display_weight = total_weight;
+needed =(need * 30) / 1000;
+var needed_class =  parseInt(needed);
+console.log(needed_class);
+ if(needed_class >= 2 )
+    {
+    $('#highlighted_platnium').addClass("exclusive");
+    }
+    else if(needed_class >= 1){
+    $('#highlighted_gold').addClass("exclusive");
+    }
+    else if(needed_class ==  0){
+    $('#highlighted').addClass("exclusive");
+    }
+$('.needed').text(needed);
+   $('.intake').text(intake);
+   $('.display_weight').text(display_weight);
+   $('.need').text(need);
+});
+
+function getpackage(duration,plan){
+
+var plan_duration = duration;
+var plan_package = plan;
+}
+
+
+</script>
+</body>
+</html>

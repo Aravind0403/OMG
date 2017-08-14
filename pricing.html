@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>OMG Labs</title>
+        <meta name="description" content="We create protein and produce them organically"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+        <link href="css/themify-icons.css" rel="stylesheet" type="text/css" media="all" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="css/theme.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+		<link href="css/sweetalert.css" rel="stylesheet" type="text/css" media="all" />
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400%7CRaleway:100,400,300,500,600,700%7COpen+Sans:400,500,600' rel='stylesheet' type='text/css'>
+		<style>
+		#silver {
+		font-size:18px;
+		font-weight:bold;
+		}
+		#gold {
+		font-size:18px;
+		font-weight:bold;
+		}
+		#platinum {
+		font-size:18px;
+		font-weight:bold;
+		}
+		</style>
+    </head>
+    <body>
+
+        <div class="nav-container">
+		  <!-- Login Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form" id="login_form">
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" class="form-control" id="usrname" name="usrname" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="password" class="form-control" id="psw" name="psw" placeholder="Enter password">
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" value="" checked>Remember me</label>
+            </div>
+              <button type="submit" class="btn btn-success btn-block" id="login_check"><span class="glyphicon glyphicon-off"></span> Login</button>
+          </form><br/>
+          <center>Or login with </center>
+            <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+        </div>
+        <div class="modal-footer">
+          <p>Not a member? <a href="#" data-toggle="modal" data-target="#reg" id="register">Sign Up</a></p>
+          <p>Forgot <a href="#">Password?</a></p>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+    <!-- register Modal -->
+  <div class="modal register fade" id="reg" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Register</h4>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+          <form role="form" id="register_form">
+          <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Name</label>
+              <input type="text" class="form-control" id="username" name="username" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+              <label for="reg_email"><span class="glyphicon glyphicon-user"></span> Email</label>
+              <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="Enter email">
+            </div>
+             <div class="form-group">
+              <label for="reg_mobile"><span class="glyphicon glyphicon-eye-open"></span> Mobile Number</label>
+              <input type="text" class="form-control" id="reg_mobile" name="reg_mobile" placeholder="Enter Mobile Number">
+            </div>
+            <div class="form-group">
+              <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+            </div>  
+            <div class="form-group">
+              <label for="address"><span class="glyphicon glyphicon-user"></span>Shipping Address</label>
+              <textarea name="address" id="address" class="form-control" style="height:100px;"></textarea>
+            </div>
+
+              <button type="submit" class="btn btn-success btn-block" id="reg_submit"><span class="glyphicon glyphicon-off"></span> Register</button>
+          </form>
+        </div>
+      </div>
+      
+    </div>
+  </div> 
+
+            <section class="bg-secondary" id="pricing">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+						<div class="inside">
+<div class="logo">
+				<img src="images/logo1.png" width="100px";></div>
+      		<h1> OMG Subscription Model </h1><br>
+            <p id="nc"> Your Protein Intake at present <span class="intake">&nbsp;</span> Grams/ Day</p>
+            <p id="nc"> Your Protein need is <span class="display_weight">&nbsp;</span> Grams/ Day</p>
+            <p id="nc"> Your Protein deficiency is <span class="need">&nbsp;</span> Grams/ Day</p>\
+            <p id="nc"> Hence, your OMG need is <span class="needed">&nbsp;</span> Kgs/ Month</p><br/>
+
+</div>
+                            <h4 class="uppercase mb80 bold">Subscription Pricing</h4>
+                            <p class="lead mb64">
+                            <div class="table-responsive">
+                                <div class="pricing-switcher">
+                                    <p class="fieldset">
+                                        <input type="radio" name="duration-1" value="monthly" id="monthly-1" onclick="getplan();">
+                                        <label for="monthly-1" >Monthly 15%</label>
+                                        <input type="radio" name="duration-1" value="bi-annual" id="Bi-Annual-1" onclick="getplan();">
+                                        <label for="Bi-Annual-1">Bi-Annual 27.5%</label>
+                                        <input type="radio" name="duration-1" value="annual" id="Annual-1" onclick="getplan();">
+                                        <label for="Annual-1">Annual 40%</label>
+                                        <!-- <span class="switch"></span> -->
+
+                                    </p>
+                                </div>
+                                <table class="table" border="0" cellspacing="5" cellpadding="5">
+                                    <thead>
+                                    <td>&nbsp;</td>
+                                    <td> <div class="pricing-table pt-1 text-center emphasis">
+                                            <h5 class="uppercase">Silver</h5>
+                                            <span class="price"></span>
+                                            <p class="lead"></p>
+                                        </div>
+                                    </td>
+                                    <td> <div class="pricing-table pt-1 text-center emphasis">
+                                            <h5 class="uppercase">Gold</h5>
+                                            <span class="price"></span>
+                                            <p class="lead"></p>
+                                        </div>
+                                    </td>
+                                    <td> <div class="pricing-table pt-1 text-center emphasis">
+                                            <h5 class="uppercase">Platinum</h5>
+                                            <span class="price"></span>
+                                            <p class="lead"></p>
+                                        </div>
+                                    </td>
+                                    <!--   <td> <div class="pricing-table pt-1 text-center emphasis">
+                                         <h5 class="uppercase">Annual</h5>
+                                         <span class="price">45%</span>
+                                         <p class="lead">Discount</p>
+                                         </div>
+                                         </td> -->
+                                    </thead>
+                                    <!--     <tr><td colspan="5" align="right"><small><a style="color:#FF0000">click on individual price to subscribe</small></a></td> -->
+                                    <tr>
+                                        <td><h5>Price</h5></td>        
+                                        <td>Rs.<span id="silver"></span></td>                     
+                                        <td>Rs.<span id="gold"></span></td>                     
+                                        <td>Rs.<span id="platinum"></span></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td><h5>Servings</h5></td>
+                                        <td><h5>15</h5></td>
+                                        <td><h5>30</h5></td>
+                                        <td><h5>60</h5></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><h5>Protein per Scoop</h5></td>
+                                        <td><h5>30 gms</h5></td>
+                                        <td><h5>30 gms</h5></td>
+                                        <td><h5>30 gms</h5></td>
+
+                                    </tr>
+                                    <!--                                   <tr><td colspan="5">&nbsp;</td> -->
+                                    <tr>
+                                        <td><h5>Cancellation Period</h5></td>
+                                        <td><h5>2 Months</h5></td>
+                                        <td><h5>1 Month</h5></td>
+                                        <td><h5>Anytime</h5></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><h5> Addresses we can ship </h5></td>
+                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>Unlimited</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><h5><center>OMG's Exclusive BALLER range Proteins</center> </h5></td>
+                                        <td><h5>&#10006;</h5></td>
+                                        <td><h5>&#10006;</h5></td>
+                                        <td><h5>&#10004;</h5></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><h5><center>OMG Beta Tested Protein Drinks</center></h5></td>
+                                        <td><h5>&#10006;</h5></td>
+                                        <td><h5>&#10004;</h5></td>
+                                        <td><h5>&#10004;</h5></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><h5>Referral Discounts</h5></td>
+                                        <td><h5>3%</h5></td>
+                                        <td><h5>6%</h5></td>
+                                        <td><h5>10%</h5></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td><h5>OMG Branded Polo T-shirts</h5></td>
+                                        <td><h5>&#10006;</h5></td>
+                                        <td><h5>&#10004;</h5></td>
+                                        <td><h5>&#10004;</h5></td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td><button type="button" class="btn btn-default btn-lg login"  data-toggle="modal" data-target="#myModal">Login</button>
+                            <a href="shipping.php" class="btn btn-default btn-lg hide buy" >Buy</a></td>
+                                        <td><button type="button" class="btn btn-default btn-lg login"  data-toggle="modal" data-target="#myModal">Login</button>
+                            <a href="shipping.php" class="btn btn-default btn-lg hide buy" >Buy</a></td>
+                                        <td><button type="button" class="btn btn-default btn-lg login"  data-toggle="modal" data-target="#myModal">Login</button>
+                            <a href="shipping.php" class="btn btn-default btn-lg hide buy" >Buy</a></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+                                        <td>&nbsp;</td>
+
+                                    </tr>
+                                </table>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                <script src="js/validate.js"></script>
+                <script src="js/index.js"></script>
+				<script src="js/sweetalert.min.js"></script>
+                <script>
+				$(document).ready(function(){
+$( "#register" ).click(function() {
+ $("#myModal").modal('hide');
+});
+$("#login_form").validate({
+
+        rules: {
+            
+            usrname : {
+            required :true,
+            email :true
+            },
+            psw:{
+            required :true,
+             minlength: 8
+            }
+            
+        },
+        messages: {
+            usrname: "Please specify your Name",
+            psw:"Please Enter Your Email Address"
+            
+
+        },
+   submitHandler: function (form) {
+
+var usrname = $('#usrname').val();
+var psw = $('#psw').val();
+
+        $.ajax({
+
+    type: "POST",
+    url: "api.php?module=login&action=login_validate",
+    async:false,
+    data: {username : usrname ,password : psw},
+    success: function(output){
+        //console.log(output);
+        localStorage.setItem('loggedIn',true);
+         $("#myModal").modal('hide');
+         location.reload();
+        
+         
+    },
+    error: function (error) {
+                  alert('Invalid Login Details');
+              }
+});
+    }
+       
+    });
+    if(localStorage.getItem('loggedIn') == 'true')
+    {
+     $(".login").addClass("hide");
+         $( ".buy" ).removeClass( "hide" );
+    }
+$("#register_form").validate({
+
+        rules: {
+            username: "required",
+            reg_email : {
+            required :true,
+            email :true
+            },
+            password:{
+            required :true,
+             minlength: 8
+            },
+            reg_mobile:{
+             required :true,
+             number:true,
+             minlength: 10
+             
+            },
+            address:{
+            required :true
+            }
+            
+        },
+        messages: {
+            username: "Please specify your Name",
+            reg_email:"Please Enter Your Email Address",
+            password: "Please Specify your password",
+            reg_mobile:"Please enter your Mobile Number",
+            address:"Please enter your shipping address"
+            
+
+        },
+   submitHandler: function (form) {
+
+var uname = $('#username').val();
+var uemail = $('#reg_email').val();
+var umobile = $('#reg_mobile').val();
+var password = $('#password').val();
+var address = $('#address').val();
+
+        $.ajax({
+
+    type: "POST",
+    url: "api.php?module=register&action=reg",
+    async:false,
+    data: {name : uname ,email : uemail ,mobile : umobile ,password : password ,address:address},
+    success: function(output){
+        //console.log(output);
+       //alert('ok');
+	   swal("Registration Success!", "A verification email has been sent to you email ID, ckick on the link to verify your account", "success")
+	   
+    },
+	error: function (error) {
+                  swal("Registration failed!", "Check the detailds entered", "error");
+              }
+});
+    }
+
+        
+    });
+var weight = localStorage.getItem("weight");
+var intake = localStorage.getItem("intake");
+
+//calculate need protein
+if(localStorage.getItem("fitness") == 0 )
+{
+var fit = "2.0";
+}
+else
+{
+fit ="1.5";
+}
+console.log(fit);
+console.log(weight);
+var total_weight = localStorage.getItem("weight") * fit;
+var need = total_weight - localStorage.getItem("intake");
+display_weight = total_weight;
+needed =(need * 30) / 1000;
+var needed_class =  parseInt(needed);
+console.log(needed_class);
+ if(needed_class >= 2 )
+    {
+    $('#highlighted_platnium').addClass("exclusive");
+    }
+    else if(needed_class >= 1){
+    $('#highlighted_gold').addClass("exclusive");
+    }
+    else if(needed_class ==  0){
+    $('#highlighted').addClass("exclusive");
+    }
+$('.needed').text(needed);
+   $('.intake').text(intake);
+   $('.display_weight').text(display_weight);
+   $('.need').text(need);
+});
+
+                                            function getplan() {
+                                                var product_package = $('input[name=duration-1]:checked').val();
+                                                $.ajax({
+                                                    type: "POST",
+                                                    url: "api.php?module=productprice&action=get",
+                                                    async: false,
+                                                    data: {product_package: product_package},
+                                                    success: function (package_price) {
+													//console.log(package_price[1])
+													var silver = package_price[0].price.toLocaleString();
+													var gold = package_price[1].price.toLocaleString();
+													var platinum = package_price[2].price.toLocaleString();
+													$('#silver').text(silver.toLocaleString());
+													$('#gold').text(gold.toLocaleString());
+													$('#platinum').text(platinum.toLocaleString());
+                                                      }
+                                                });
+                                            }
+                </script>
+                </body>
+                </html>
+
+
+
+
+
+
+
+
+
+
+
